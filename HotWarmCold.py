@@ -6,7 +6,7 @@ maxguess = 10
 digits = 3
 
 def hotwarmcold():
-    
+    print('Szia Bazsi')
     GoalNum = ''
     numbers = list('0123456789')    #these digits can be choosen
     random.shuffle(numbers)         #shuffled into random order
