@@ -8,7 +8,7 @@ digits = 3
 def hotwarmcold():
     print('Hello. What is your name?')
     name = input()
-    print('Hi ' + name + '!')
+    print('Hi ' + name + '! Nice meeting you :)')
     GoalNum = ''
     numbers = list('0123456789')    #these digits can be choosen
     random.shuffle(numbers)         #shuffled into random order
