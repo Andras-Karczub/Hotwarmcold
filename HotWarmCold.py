@@ -5,18 +5,8 @@ import random, sys
 maxguess = 10
 digits = 3
 
-def hotwarmcold():
-    print('Hello. What is your name?')
-    name = input()
-    print('Hi ' + name + '! Nice meeting you :)')
-    GoalNum = ''
-    numbers = list('0123456789')    #these digits can be choosen
-    random.shuffle(numbers)         #shuffled into random order
-    for i in range(digits):
-        GoalNum += numbers[i]   #random X digit number given defined by "digits" value
-        
-
-    print('''I am thinking of a {}-digit number. There is no digit duplicate.
+# here are the rules of the game
+rules ='''I am thinking of a {}-digit number. There is no digit duplicate.
 Pay attention! eg: 037 can be a number as well!
 Try to guess what the number is. Here are some clues:
 
@@ -25,9 +15,23 @@ When I say:    That means:
   Hot          One digit is correct and in the right position.
   Cold         No digit is correct.
 
-I have thought up my number.'''.format(digits))
+I have thought up my number.
+You have {} guesses to get it. Good luck!'''.format(digits,maxguess)
 
-    print('''You have {} guesses to get it. Good luck!'''.format(maxguess))     #game rules printed
+print('Hello. What is your name?')  #intro to get to know player
+name = input()
+print('Hi ' + name + '! Nice meeting you :)')
+
+print(rules)     #game rules printed
+
+
+def hotwarmcold():  #the game itself
+    GoalNum = ''
+    numbers = list('0123456789')    #these digits can be choosen
+    random.shuffle(numbers)         #shuffled into random order
+    for i in range(digits):
+        GoalNum += numbers[i]   #random X digit number given defined by "digits" value
+        
 
     for j in range(1, maxguess + 1):
         guess = input()
@@ -60,6 +64,7 @@ I have thought up my number.'''.format(digits))
 
     print('''Type "yes" if you want to play again''')   #restart game if user wants to
     if input() == 'yes':
+        print('I have tought up my new number')
         hotwarmcold()
     else:   #end program if user says so
         sys.exit()
