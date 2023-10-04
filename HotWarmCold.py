@@ -37,8 +37,11 @@ def hotwarmcold():  #the game itself
         guess = input()
         
         while len(guess) != digits or not guess.isdecimal():
-            print('Typed value is not a %s digit number' %(digits))    #input validation check
+            print('Typed value is not a {} digit number'.format(digits))    #input validation check
             guess = input()
+
+        if guess == GoalNum:            #winning condition
+            break
 
         clues = []                      #listing out clues
         for k in range(digits):
@@ -50,9 +53,6 @@ def hotwarmcold():  #the game itself
 
         if len(clues) == 0:             #no digit in GoalNum (Cold)
             clues.append('Cold')
-
-        if guess == GoalNum:            #winning condition
-            break
 
         clues.sort()
         print(clues)
